@@ -1,16 +1,31 @@
+<!-- Ana kapsayıcı div, margin-top ve margin-bottom değerleri ayarlanmış. -->
 <div class="container mt-5 mb-5">
 
-    <div class="row">
+    <div class="row"> <!-- İçeriğin satır düzeninde hizalanmasını sağlar. -->
+        <!-- *ngFor ile 'foodData' dizisindeki her bir öğe için bir döngü oluşturuluyor. -->
+        <!-- Her öğe için 'fd' adında bir değişken tanımlanıyor. -->
         <div class="col-lg-4" *ngFor="let fd of foodData">
+            <!-- Her bir yemek için 'foodbox' sınıfına sahip bir div oluşturuluyor. -->
+            <!-- Margin-top ve margin-bottom ile üst ve alt boşluklar eklenmiş. -->
             <div class="foodbox mt-3 mb-3">
+                <!-- Yemek resmini göstermek için img etiketi kullanılıyor. -->
+                <!-- Resim kaynağı 'fd.foodImg' ile dinamik olarak belirleniyor. -->
                 <img src="{{fd.foodImg}}">
+                <!-- Yemek adını göstermek için h1 etiketi kullanılıyor. -->
+                <!-- 'fd.foodName' ile yemek adı dinamik olarak gösteriliyor. -->
                 <h1>{{fd.foodName}}</h1>
+                <!-- Yemek detaylarını göstermek için p etiketi kullanılıyor. -->
+                <!-- 'fd.foodDetails' ile yemek açıklaması dinamik olarak gösteriliyor. -->
                 <p>{{fd.foodDetails}}</p>
+                <!-- Yemek fiyatını göstermek için p etiketi kullanılıyor. -->
+                <!-- Angular'ın currency pipe'ı ile fiyat, 'INR' para birimi olarak biçimlendiriliyor. -->
                 <p>{{fd.foodPrice | currency:'INR'}}</p>
                 <br/>
-                <a class="buybtn" [routerLink]="['/menu',fd.id]">Buy Now &nbsp;<i class="bi bi-bag"></i></a>
+                <!-- Satın alma düğmesi için 'a' etiketi kullanılıyor. -->
+                <!-- 'routerLink' ile kullanıcıyı /menu ve fd.id değerine yönlendirecek bir rota oluşturuluyor. -->
+                <!-- Bu, tıklanan yemeğe ait sayfaya gitmeyi sağlar. -->
+                <a class="buybtn" [routerLink]="['/menu', fd.id]">Buy Now &nbsp;<i class="bi bi-bag"></i></a>
             </div>
         </div>
     </div>
-
 </div>
