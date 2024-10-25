@@ -1,30 +1,37 @@
+<!-- Ana kapsayıcı div, sayfanın üst ve alt arasında boşluk bırakmak için margin kullanıyor -->
 <div class="container mt-5 mb-5">
 
+    <!-- İçerik için bir satır oluşturuluyor -->
     <div class="row">
 
+        <!-- Menü öğesi görüntülemek için sol taraf, yalnızca menuData varsa gösterilir -->
         <div class="col-lg-6" *ngIf="menuData">
+            <!-- Kullanıcıyı önceki sayfaya döndürecek bir geri düğmesi -->
             <a routerLink="../../menu" class="btn btn-sm btn-dark mb-3 ">Back</a>
+            <!-- Menü öğesinin resmini genişliği %100 olacak şekilde göster -->
             <img src="{{menuData[0].foodImg}}" width="100%"/>
+            <!-- Menü öğesinin adı, açıklaması ve fiyatı -->
             <h1 class="mt-3">{{menuData[0].foodName}}</h1>
             <p>{{menuData[0].foodDetails}}</p>
             <p>{{menuData[0].foodPrice | currency :'INR'}}</p>
         </div>
 
+        <!-- Sağ tarafta kullanıcı bilgilerini girmek için form alanı -->
         <div class="col-lg-6 col-12">
             <h1>Enter Your Details</h1>
+            <!-- Sipariş formu başlıyor -->
             <form>
 
+                <!-- Kullanıcının adını gireceği bir metin alanı -->
                 <input type="text" class="form-control" placeholder="Enter Your Full Name" />
+                <!-- Kullanıcının telefon numarasını gireceği bir metin alanı -->
                 <input type="text" class="form-control" placeholder="Enter Your Mobile" />
+                <!-- Kullanıcının adresini gireceği bir metin alanı -->
                 <textarea class="form-control" placeholder="Enter Your Address"></textarea>
+                <!-- Siparişi göndermek için düğme -->
                 <button class="btn btn-md btn-dark mt-3">Place Order</button>
 
             </form>
-
-
         </div> 
-
-
     </div>
-
 </div>
