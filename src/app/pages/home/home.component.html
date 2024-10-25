@@ -1,0 +1,59 @@
+<div class="banner">
+    <div class="content">
+        <h1 class="mb-5">Fresh Cooked Food <br/> At Your Door.</h1>
+        <a routerLink="menu">ORDER NOW <i class="bi bi-arrow-right"></i></a>
+    </div>
+</div>
+<!-- step  -->
+<div class="container mt-5 mb-5">
+    <h1 class="text-center">How to get <span class="highlight">fresh food</span></h1>
+    <div class="row mt-5">
+        <!-- one  -->
+        <div class="col-lg-4 mt-2">
+            <div class="stepBox">
+                <h1>1</h1>
+                <p>select food</p>
+            </div>
+        </div>
+<!-- two -->
+        <div class="col-lg-4 mt-2">
+            <div class="stepBox">
+                <h1>2</h1>
+                <p>fill the details</p>
+            </div>
+        </div>
+        <!-- three  -->
+        <div class="col-lg-4 mt-2">
+            <div class="stepBox">
+                <h1>3</h1>
+                <p>your order delivered in minute</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- foodbox  -->
+<div class="container mt-4 mb-4">
+    <!-- Ana kapsayıcı. Üst ve alt boşluklar için mt-4 ve mb-4 sınıfları eklenmiş -->
+    <h1 class="text-center">Customers <span class="highlight">Favourites Food</span></h1>
+    <!-- Başlık, ortalanmış (text-center) ve "Favourites Food" kısmı vurgulanmış (highlight) -->
+    <div class="row">
+        <!-- Satır yapısı, içerideki sütunlar bu satırda düzenlenecek -->
+        <div class="col-lg-3 mt-3" *ngFor="let fd of foodData; index as i">
+            <!-- Her yemek için bir sütun oluşturulur, toplamda dört sütun olacak şekilde ayarlanır (col-lg-3).
+                 *ngFor ile foodData listesindeki her öğe fd olarak tanımlanır ve dizinin indeksi i olarak alınır. -->
+            <div class="foodbox" *ngIf="i<=3">
+                <!-- Eğer indeks 3 veya daha küçükse (i <= 3), bu yemek kutusu görüntülenir.
+                     Yani yalnızca ilk dört yemek gösterilir. -->
+                <img src="{{fd.foodImg}}" />
+                <!-- Yemeğin resmi gösterilir. Resim kaynağı fd.foodImg'den alınır. -->
+                <h1>{{fd.foodName}}</h1>
+                <!-- Yemeğin adı gösterilir. Yemeğin adı fd.foodName ile sağlanır. -->
+                <p>{{fd.foodPrice | currency:'INR'}}</p>
+                <!-- Yemeğin fiyatı Hint Rupisi (INR) cinsinden formatlanarak gösterilir. -->
+            </div>
+        </div>
+    </div>
+    <a routerLink="menu" class="viewmorebtn">view more <i class="bi bi-arrow-right"></i></a>
+    <!-- "View more" bağlantısı. Tıklandığında "menu" rotasına yönlendirilir. -->
+</div>
